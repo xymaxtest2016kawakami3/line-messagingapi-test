@@ -18,42 +18,41 @@ if($type != "text"){
 }
 
 //返信データ作成
-if ($text == 'はい') {
+if ($text == '修繕依頼') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "対象機器はこちらで良いでしょうか？",
+    "altText" => "対象機器を写真で送るか、選択肢からお選びください。",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "平台型冷ケース",
-      "text" => "対象機器はこちらで良いでしょうか？",
+      "title" => "対象機器の選択",
+      "text" => "対象機器を写真で送るか、選択肢からお選びください。",
       "actions" => [
           [
             "type" => "message",
-            "label" => "はい",
-            "text" => "はい"
+            "label" => "冷ケース/冷蔵/冷凍",
+            "text" => "冷ケース/冷蔵/冷凍"
           ],
           [
             "type" => "message",
-            "label" => "いいえ",
-            "text" => "いいえ"
+            "label" => "空調",
+            "text" => "空調"
           ],
           [
             "type" => "message",
-            "label" => "違うやつ",
-            "text" => "違うやつお願い"
+            "label" => "照明",
+            "text" => "照明"
           ],
           [
             "type" => "message",
-            "label" => "違うやつ",
-            "text" => "違うやつお願い"
+            "label" => "ここには無い",
+            "text" => "ここには無い"
           ]
       ]
     ]
   ];
 } else if ($text == 'いいえ') {
   exit;
-} else if ($text == '違うやつお願い') {
+} else if ($text == '冷ケース/冷蔵/冷凍') {
   $response_format_text = [
     "type" => "template",
     "altText" => "選択肢から対象の機器をお選びください。",
