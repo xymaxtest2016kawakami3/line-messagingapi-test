@@ -133,8 +133,8 @@ if ($text == '修繕依頼') {
     "type" => "template",
     "altText" => "ご用件はこちらでよろしいでしょうか？（はい／いいえ）",
     "template" => [
-        "type" => "confirm",
-        "text" => "ご用件はこちらでよろしいでしょうか？",
+        "type" => "message",
+        "text" => "何かご用件でしょうか？リッチメニューよりお選びください。",
         "actions" => [
             [
               "type" => "message",
