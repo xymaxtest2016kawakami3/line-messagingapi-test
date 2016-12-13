@@ -29,19 +29,19 @@ if ($text == 'はい') {
       "text" => "対象機器はこちらで良いでしょうか？",
       "actions" => [
           [
-            "type" => "postback",
+            "type" => "message",
             "label" => "はい",
-            "data" => "action=buy&itemid=123"
+            "text" => "はい"
           ],
           [
-            "type" => "postback",
+            "type" => "message",
             "label" => "いいえ",
-            "data" => "action=pcall&itemid=123"
+            "text" => "いいえ"
           ],
           [
-            "type" => "uri",
-            "label" => "違う物",
-            "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+            "type" => "message",
+            "label" => "違うやつ",
+            "text" => "違うやつお願い"
           ],
           [
             "type" => "message",
@@ -63,7 +63,7 @@ if ($text == 'はい') {
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
             "title" => "冷ケース　平台型",
-            "text" => "冷ケース　平台型でしょうか？",
+            "text" => "対象機器が「冷ケース平台型」の場合は下記症状からお選び下さい",
             "actions" => [
               [
                   "type" => "message",
@@ -84,45 +84,45 @@ if ($text == 'はい') {
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
-            "title" => "▲▲レストラン",
-            "text" => "それともこちら？（２つ目）",
+            "title" => "冷ケース　多段型",
+            "text" => "対象機器が「冷ケース多段型」の場合は下記症状からお選び下さい",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=222"
+                  "type" => "message",
+                  "label" => "冷えない",
+                  "text" => "冷ケース多段が冷えません"
               ],
               [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=222"
+                  "type" => "message",
+                  "label" => "ナイトカーテン破損",
+                  "text" => "冷ケース多段がナイトカーテン破損"
               ],
               [
-                  "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "type" => "message",
+                  "label" => "上記以外の症状",
+                  "text" => "冷ケース多段が別の症状"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
-            "title" => "■■レストラン",
-            "text" => "はたまたこちら？（３つ目）",
+            "title" => "冷ケース　リーチイン型",
+            "text" => "対象機器が「冷ケースリーチイン型」の場合は下記症状からお選び下さい",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=333"
+                  "type" => "message",
+                  "label" => "冷えない",
+                  "text" => "冷ケース平台が冷えません"
               ],
               [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=333"
+                  "type" => "message",
+                  "label" => "ナイトカーテン破損",
+                  "text" => "冷ケース平台がナイトカーテン破損"
               ],
               [
-                  "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "type" => "message",
+                  "label" => "上記以外の症状",
+                  "text" => "冷ケース平台が別の症状"
               ]
             ]
           ]
@@ -132,10 +132,10 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
+    "altText" => "ご用件はこちらでよろしいでしょうか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？",
+        "text" => "ご用件はこちらでよろしいでしょうか？",
         "actions" => [
             [
               "type" => "message",
