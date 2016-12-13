@@ -21,26 +21,26 @@ if($type != "text"){
 if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらの〇〇はいかがですか？",
+    "altText" => "対象機器はこちらで良いでしょうか？",
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "○○レストラン",
-      "text" => "お探しのレストランはこれですね",
+      "title" => "平台型冷ケース",
+      "text" => "対象機器はこちらで良いでしょうか？",
       "actions" => [
           [
             "type" => "postback",
-            "label" => "予約する",
+            "label" => "はい",
             "data" => "action=buy&itemid=123"
           ],
           [
             "type" => "postback",
-            "label" => "電話する",
+            "label" => "いいえ",
             "data" => "action=pcall&itemid=123"
           ],
           [
             "type" => "uri",
-            "label" => "詳しく見る",
+            "label" => "違う物",
             "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ],
           [
@@ -56,29 +56,29 @@ if ($text == 'はい') {
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "候補を３つご案内しています。",
+    "altText" => "選択肢から対象の機器をお選びください。",
     "template" => [
       "type" => "carousel",
       "columns" => [
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
-            "title" => "●●レストラン",
-            "text" => "こちらにしますか？",
+            "title" => "冷ケース　平台型",
+            "text" => "冷ケース　平台型でしょうか？",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=111"
+                  "type" => "message",
+                  "label" => "冷えない",
+                  "text" => "冷ケース平台が冷えません"
               ],
               [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=111"
+                  "type" => "message",
+                  "label" => "ナイトカーテン破損",
+                  "text" => "冷ケース平台がナイトカーテン破損"
               ],
               [
-                  "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "type" => "message",
+                  "label" => "上記以外の症状",
+                  "text" => "冷ケース平台が別の症状"
               ]
             ]
           ],
