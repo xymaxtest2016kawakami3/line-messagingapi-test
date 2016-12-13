@@ -133,7 +133,7 @@ if ($text == '修繕依頼') {
     "type" => "template",
     "altText" => "冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
     "template" => [
-        "type" => "comfirm",
+        "type" => "confirm",
         "text" => "冷ケース平台が冷えない症状の対応でよろしいでしょうか？",
 	"actions" => [
             [
