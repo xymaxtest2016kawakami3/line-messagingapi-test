@@ -135,18 +135,6 @@ if ($text == '修繕依頼') {
     "template" => [
         "type" => "message",
         "text" => "何かご用件でしょうか？リッチメニューよりお選びください。",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "いいえ"
-            ]
-        ]
     ]
   ];
 }
