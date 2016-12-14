@@ -149,7 +149,7 @@ if ($text == '修繕依頼') {
         ]
     ]
   ];
-} else if ($text == '03-5544-6630' or '0355446660' ) {
+} else if ($text == '03-5544-6630') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらの店舗でよろしいでしょうか？（はい／いいえ）",
@@ -175,7 +175,7 @@ if ($text == '修繕依頼') {
     "type" => "template",
     "altText" => "ご登録ありがとうございます。",
     "template" => [
-        "type" => "message",
+        "type" => "text",
         "text" => "カワカミマート 溜池山王店 様ご登録ありがとうございます。\\nご依頼事項がある場合は、リッチメニューよりご登録下さい。",
     ]
   ];
