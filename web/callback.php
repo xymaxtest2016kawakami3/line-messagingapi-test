@@ -138,12 +138,12 @@ if ($text == '修繕依頼') {
 	"actions" => [
             [
               "type" => "message",
-              "label" => "はい",
+              "label" => "症状はい",
               "text" => "はい"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
+              "label" => "症状いいえ",
               "text" => "いいえ"
             ]
         ]
@@ -173,7 +173,17 @@ if ($text == '修繕依頼') {
 } else if ($text == 'はい' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "カワカミマート 溜池山王店 様ご登録ありがとうございます。\nご依頼事項がある場合は、下部「問合せはここから」よりご登録下さい。",
+        "text" => "カワカミマート 溜池山王店 様ご登録ありがとうございます。\n続けてお名前をご入力下さい。",
+  ];
+} else if ($text == '川上智也' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、下部「お問合せ」よりご登録下さい。",
+  ];
+} else if ($label == '症状はい' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "お問合せを受付ました。\nその他の伝達事項がある場合は続けてご入力下さい。",
   ];
 }
 
