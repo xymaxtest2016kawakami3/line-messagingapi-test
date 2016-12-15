@@ -154,7 +154,7 @@ if ($text == '修繕依頼') {
         "type" => "text",
         "text" => "対象の機器の設置場所を教えて下さい。",
   ];
-} else if ($text == '鮮魚コーナー' or '鮮魚' ) {
+} else if ($text == '鮮魚コーナー' ) {
   $response_format_text = [
     "type" => "template",
     "altText" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
@@ -175,7 +175,12 @@ if ($text == '修繕依頼') {
         ]
     ]
   ];
-} else if ($text == '03-5544-6630' or '0355446630') {
+} else if ($text == 'はい、そうです。' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "お問合せを受付ました。ご連絡をお待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
+  ];
+} else if ($text == '03-5544-6630') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらの店舗でよろしいでしょうか？（はい／いいえ）",
@@ -205,11 +210,6 @@ if ($text == '修繕依頼') {
   $response_format_text = [
         "type" => "text",
         "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、「お問合せ」よりご登録下さい。",
-  ];
-} else if ($text == 'はい、そうです。' ) {
-  $response_format_text = [
-        "type" => "text",
-        "text" => "お問合せを受付ました。ご連絡をお待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
   ];
 }
 
