@@ -131,25 +131,51 @@ if ($text == '修繕依頼') {
 } else if ($text == '冷ケース平台が冷えません') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "霜取りは行いましたか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "冷ケース平台が冷えない症状の対応でよろしいでしょうか？",
+        "text" => "霜取りは行いましたか？",
 	"actions" => [
             [
               "type" => "message",
-              "label" => "症状はい",
-              "text" => "はい"
+              "label" => "はい",
+              "text" => "はい、行いました。"
             ],
             [
               "type" => "message",
-              "label" => "症状いいえ",
-              "text" => "いいえ"
+              "label" => "いいえ",
+              "text" => "いいえ、行っていません。"
             ]
         ]
     ]
   ];
-} else if ($text == '03-5544-6630') {
+} else if ($text == 'はい、行いました。' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "対象の機器の設置場所を教えて下さい。",
+  ];
+} else if ($text == '鮮魚コーナー' or '鮮魚' ) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
+    "template" => [
+        "type" => "confirm",
+        "text" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい、そうです。"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ、違います。"
+            ]
+        ]
+    ]
+  ];
+} else if ($text == '03-5544-6630' or '0355446630') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらの店舗でよろしいでしょうか？（はい／いいえ）",
@@ -178,12 +204,12 @@ if ($text == '修繕依頼') {
 } else if ($text == '川上智也' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、下部「お問合せ」よりご登録下さい。",
+        "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、「お問合せ」よりご登録下さい。",
   ];
-} else if ($label == '症状はい' ) {
+} else if ($text == 'はい、そうです。' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "お問合せを受付ました。\nその他の伝達事項がある場合は続けてご入力下さい。",
+        "text" => "お問合せを受付ました。ご連絡をお待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
   ];
 }
 
