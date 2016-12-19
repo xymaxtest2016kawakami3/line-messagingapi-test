@@ -18,6 +18,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 //}
 
 if ($type == "image" ) {
+  $response_format_text = [
     "type" => "template",
     "altText" => "誘導灯ですね？（はい／いいえ）",
     "template" => [
@@ -35,7 +36,7 @@ if ($type == "image" ) {
               "text" => "いいえ"
             ]
         ]
-    ]
+     ]
   ];
 }
 
