@@ -211,7 +211,7 @@ if ($text == '修繕依頼') {
         "type" => "text",
         "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、「お問合せ」よりご登録下さい。",
   ];
-} if ($type == "image" ) {
+} else if ($type == "image" ) {
     "type" => "template",
     "altText" => "誘導灯ですね？（はい／いいえ）",
     "template" => [
