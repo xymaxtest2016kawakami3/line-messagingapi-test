@@ -13,8 +13,8 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 //メッセージ以外のときは何も返さず終了
-if($type != "text"){
-	exit;
+//if($type != "text"){
+//	exit;
 }
 
 //返信データ作成
@@ -210,6 +210,26 @@ if ($text == '修繕依頼') {
   $response_format_text = [
         "type" => "text",
         "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、「お問合せ」よりご登録下さい。",
+  ];
+} if ($type == "image" ) {
+    "type" => "template",
+    "altText" => "誘導灯ですね？（はい／いいえ）",
+    "template" => [
+        "type" => "confirm",
+        "text" => "誘導灯でよろしいでしょうか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ"
+            ]
+        ]
+    ]
   ];
 }
 
