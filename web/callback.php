@@ -41,7 +41,29 @@ if ($type == "image" ) {
 }
 
 //返信データ作成
-else if ($text == '修繕依頼') {
+else if ($text == '修繕依頼・見積依頼') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "すぐに修繕をご希望の方は修繕依頼を、お見積り取得されてから検討の方が見積依頼を押して下さい。",
+    "template" => [
+      "type" => "confirm",
+      "title" => "修繕依頼・見積依頼",
+      "text" => "すぐに修繕をご希望の方は修繕依頼を、お見積り取得されてから検討の方が見積依頼を押して下さい。",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "修繕依頼",
+            "text" => "修繕依頼"
+          ],
+          [
+            "type" => "message",
+            "label" => "見積依頼",
+            "text" => "見積依頼"
+          ]
+      ]
+    ]
+  ];
+} else if ($text == '修繕依頼' or '見積依頼' ) {
   $response_format_text = [
     "type" => "template",
     "altText" => "対象機器を写真で送るか、選択肢からお選びください。",
@@ -232,7 +254,7 @@ else if ($text == '修繕依頼') {
 } else if ($text == '川上智也' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、「お問合せ」よりご登録下さい。",
+        "text" => "川上智也 様ご登録ありがとうございます。\nご依頼事項がある場合は、画面左下のボタンを押して頂き、「お問合せ」よりご登録下さい。",
   ];
 } 
 
