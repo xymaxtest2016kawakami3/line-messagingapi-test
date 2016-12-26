@@ -289,11 +289,11 @@ else if ($text == '修繕依頼・見積依頼') {
     ]
   ];
 } else if ($text == '見積作成中') {
-  $response_format_text1 = [
+  $response_format_text = [
         "type" => "text",
         "text" => "見積作成中の案件一覧はこちらです。\n1．【提案】受変電設備点検不備改修（201503）…12/12\n2．惣菜作業室 天井内設置排気ファン更新　…12/13\n3．消防設備点検不備改修 (スプリンクラーヘッド増設、移設及び感知器交換)　…12/14\n4．【提案】消防設備点検不備改修(201608)ダクト消火設備休止対応　…12/15",
 ];
-  $response_format_text2 = [
+  $response_format_text .= [
     "type" => "template",
     "altText" => "見積作成中の案件一覧。",
     "template" => [
@@ -309,7 +309,6 @@ else if ($text == '修繕依頼・見積依頼') {
       ]
     ]
   ];
-  $response_format_text = [$response_format_text1 and $response_format_text2];
 }
 
 
