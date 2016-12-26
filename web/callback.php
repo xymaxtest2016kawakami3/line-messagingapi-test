@@ -309,7 +309,7 @@ else if ($text == '修繕依頼・見積依頼') {
       ]
     ]
   ];
-  $response_format_text = [$response_format_text1] . [$response_format_text2];
+  $response_format_text = [$response_format_text1] . $response_format_text2;
 }
 
 
