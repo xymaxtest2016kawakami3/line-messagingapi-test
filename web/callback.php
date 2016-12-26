@@ -63,7 +63,7 @@ else if ($text == '修繕依頼・見積依頼') {
       ]
     ]
   ];
-} else if ($text == '修繕依頼' or '見積依頼' ) {
+} else if ($text == '修繕依頼') {
   $response_format_text = [
     "type" => "template",
     "altText" => "対象機器を写真で送るか、選択肢からお選びください。",
