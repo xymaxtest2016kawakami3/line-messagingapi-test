@@ -20,10 +20,10 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($type == "image" ) {
   $response_format_text = [
     "type" => "template",
-    "altText" => "誘導灯ですね？（はい／いいえ）",
+    "altText" => "駐車場の縁石の対応でよろしいでしょうか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "誘導灯でよろしいでしょうか？",
+        "text" => "駐車場の縁石の対応でよろしいでしょうか？",
 	"actions" => [
             [
               "type" => "message",
@@ -66,11 +66,11 @@ else if ($text == '修繕依頼・見積依頼') {
 } else if ($text == '修繕依頼') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "対象機器を写真で送るか、選択肢からお選びください。",
+    "altText" => "対象機器を写真で送るか、選択肢よりお選びください。",
     "template" => [
       "type" => "buttons",
       "title" => "対象機器の選択",
-      "text" => "対象機器を写真で送るか、選択肢からお選びください。",
+      "text" => "対象機器を写真で送るか、選択肢よりお選びください。",
       "actions" => [
           [
             "type" => "message",
@@ -89,8 +89,8 @@ else if ($text == '修繕依頼・見積依頼') {
           ],
           [
             "type" => "message",
-            "label" => "ここには無い",
-            "text" => "ここには無い"
+            "label" => "次の選択肢へ",
+            "text" => "次の選択肢へ"
           ]
       ]
     ]
