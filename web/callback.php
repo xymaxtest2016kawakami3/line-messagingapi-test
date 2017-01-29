@@ -298,13 +298,13 @@ else if ($text == '修繕依頼・見積依頼') {
       "actions" => [
           [
             "type" => "message",
-            "label" => "進捗確認完了",
-            "text" => "進捗確認完了"
+            "label" => "確認完了",
+            "text" => "確認完了"
           ],
 	  [
             "type" => "message",
-            "label" => "進捗確認完了",
-            "text" => "進捗確認完了"
+            "label" => "詳細確認",
+            "text" => "詳細確認"
           ]
       ]
     ]
