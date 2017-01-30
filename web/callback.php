@@ -38,7 +38,7 @@ if ($type == "image" ) {
         ]
      ]
   ];
-} else if ($text == 'はい　' ) {
+} else if ($text == 'はい' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "対象の場所を教えて下さい。",
