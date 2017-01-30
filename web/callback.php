@@ -2,17 +2,17 @@
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 
 
-//ユーザーからのメッセージ取得
+//���[�U�[����̃��b�Z�[�W�擾
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
 
 $type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
-//メッセージ取得
+//���b�Z�[�W�擾
 $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
-//ReplyToken取得
+//ReplyToken�擾
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-//メッセージ以外のときは何も返さず終了
+//���b�Z�[�W�ȊO�̂Ƃ��͉����Ԃ����I��
 //if($type != "text"){
 //	exit;
 //}
@@ -20,291 +20,317 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($type == "image" ) {
   $response_format_text = [
     "type" => "template",
-    "altText" => "駐車場の縁石の対応でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "���ԏ�̉��΂̏C�U�ł�낵���ł��傤���H�i�͂��^�������j",
     "template" => [
         "type" => "confirm",
-        "text" => "駐車場の縁石の対応でよろしいでしょうか？",
+        "text" => "���ԏ�̉��΂̏C�U�ł�낵���ł��傤���H",
 	"actions" => [
             [
               "type" => "message",
-              "label" => "はい",
-              "text" => "はい"
+              "label" => "�͂�",
+              "text" => "�͂��@"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
-              "text" => "いいえ"
+              "label" => "������",
+              "text" => "�������@"
             ]
         ]
      ]
   ];
+} else if ($text == '�͂��@' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "�Ώۂ̏ꏊ�������ĉ������B",
+  ];
+} else if ($text == '�k�����ԏ�') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "�k�����ԏ�̒��ԏ�̉��΂̏C�U�ł�낵���ł��傤���H�i�͂��^�������j",
+    "template" => [
+        "type" => "confirm",
+        "text" => "�k�����ԏ�̒��ԏ�̉��΂̏C�U�ł�낵���ł��傤���H",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "�͂�",
+              "text" => "�͂��@�@"
+            ],
+            [
+              "type" => "message",
+              "label" => "������",
+              "text" => "�������@�@"
+            ]
+        ]
+    ]
+  ];
 }
 
-//返信データ作成
-else if ($text == '修繕依頼・見積依頼') {
+//�ԐM�f�[�^�쐬
+else if ($text == '�C�U�˗��E���ψ˗�') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "すぐに修繕をご希望の方は修繕依頼を、お見積り取得されてから検討の方が見積依頼を押して下さい。",
+    "altText" => "�����ɏC�U������]�̕��͏C�U�˗����A�����ς�擾����Ă��猟���̕������ψ˗��������ĉ������B",
     "template" => [
       "type" => "confirm",
-      "title" => "修繕依頼・見積依頼",
-      "text" => "すぐに修繕をご希望の方は修繕依頼を、お見積り取得されてから検討の方が見積依頼を押して下さい。",
+      "title" => "�C�U�˗��E���ψ˗�",
+      "text" => "�����ɏC�U������]�̕��͏C�U�˗����A�����ς�擾����Ă��猟���̕������ψ˗��������ĉ������B",
       "actions" => [
           [
             "type" => "message",
-            "label" => "修繕依頼",
-            "text" => "修繕依頼"
+            "label" => "�C�U�˗�",
+            "text" => "�C�U�˗�"
           ],
           [
             "type" => "message",
-            "label" => "見積依頼",
-            "text" => "見積依頼"
+            "label" => "���ψ˗�",
+            "text" => "���ψ˗�"
           ]
       ]
     ]
   ];
-} else if ($text == '修繕依頼') {
+} else if ($text == '�C�U�˗�') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "対象機器を写真で送るか、選択肢よりお選びください。",
+    "altText" => "�Ώۋ@����ʐ^�ő��邩�A�I������肨�I�т��������B",
     "template" => [
       "type" => "buttons",
-      "title" => "対象機器の選択",
-      "text" => "対象機器を写真で送るか、選択肢よりお選びください。",
+      "title" => "�Ώۋ@��̑I��",
+      "text" => "�Ώۋ@����ʐ^�ő��邩�A�I������肨�I�т��������B",
       "actions" => [
           [
             "type" => "message",
-            "label" => "冷ケース/冷蔵/冷凍",
-            "text" => "冷ケース/冷蔵/冷凍"
+            "label" => "��P�[�X/�①/�Ⓚ",
+            "text" => "��P�[�X/�①/�Ⓚ"
           ],
           [
             "type" => "message",
-            "label" => "空調",
-            "text" => "空調"
+            "label" => "��",
+            "text" => "��"
           ],
           [
             "type" => "message",
-            "label" => "照明",
-            "text" => "照明"
+            "label" => "�Ɩ�",
+            "text" => "�Ɩ�"
           ],
           [
             "type" => "message",
-            "label" => "次の選択肢へ",
-            "text" => "次の選択肢へ"
+            "label" => "���̑I������",
+            "text" => "���̑I������"
           ]
       ]
     ]
   ];
-} else if ($text == 'いいえ') {
+} else if ($text == '������') {
   exit;
-} else if ($text == '冷ケース/冷蔵/冷凍') {
+} else if ($text == '��P�[�X/�①/�Ⓚ') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "選択肢から対象の機器をお選びください。",
+    "altText" => "�I��������Ώۂ̋@������I�т��������B",
     "template" => [
       "type" => "carousel",
       "columns" => [
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
-            "title" => "冷ケース　平台型",
-            "text" => "対象機器が「冷ケース平台型」の場合は下記症状からお選び下さい",
+            "title" => "��P�[�X�@����^",
+            "text" => "�Ώۋ@�킪�u��P�[�X����^�v�̏ꍇ�͉��L�Ǐ󂩂炨�I�щ�����",
             "actions" => [
               [
                   "type" => "message",
-                  "label" => "冷えない",
-                  "text" => "冷ケース平台が冷えません"
+                  "label" => "�₦�Ȃ�",
+                  "text" => "��P�[�X���䂪�₦�܂���"
               ],
               [
                   "type" => "message",
-                  "label" => "ナイトカーテン破損",
-                  "text" => "冷ケース平台がナイトカーテン破損"
+                  "label" => "�i�C�g�J�[�e���j��",
+                  "text" => "��P�[�X���䂪�i�C�g�J�[�e���j��"
               ],
               [
                   "type" => "message",
-                  "label" => "上記以外の症状",
-                  "text" => "冷ケース平台が別の症状"
+                  "label" => "��L�ȊO�̏Ǐ�",
+                  "text" => "��P�[�X���䂪�ʂ̏Ǐ�"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
-            "title" => "冷ケース　多段型",
-            "text" => "対象機器が「冷ケース多段型」の場合は下記症状からお選び下さい",
+            "title" => "��P�[�X�@���i�^",
+            "text" => "�Ώۋ@�킪�u��P�[�X���i�^�v�̏ꍇ�͉��L�Ǐ󂩂炨�I�щ�����",
             "actions" => [
               [
                   "type" => "message",
-                  "label" => "冷えない",
-                  "text" => "冷ケース多段が冷えません"
+                  "label" => "�₦�Ȃ�",
+                  "text" => "��P�[�X���i���₦�܂���"
               ],
               [
                   "type" => "message",
-                  "label" => "ナイトカーテン破損",
-                  "text" => "冷ケース多段がナイトカーテン破損"
+                  "label" => "�i�C�g�J�[�e���j��",
+                  "text" => "��P�[�X���i���i�C�g�J�[�e���j��"
               ],
               [
                   "type" => "message",
-                  "label" => "上記以外の症状",
-                  "text" => "冷ケース多段が別の症状"
+                  "label" => "��L�ȊO�̏Ǐ�",
+                  "text" => "��P�[�X���i���ʂ̏Ǐ�"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
-            "title" => "冷ケース　リーチイン型",
-            "text" => "対象機器が「冷ケースリーチイン型」の場合は下記症状からお選び下さい",
+            "title" => "��P�[�X�@���[�`�C���^",
+            "text" => "�Ώۋ@�킪�u��P�[�X���[�`�C���^�v�̏ꍇ�͉��L�Ǐ󂩂炨�I�щ�����",
             "actions" => [
               [
                   "type" => "message",
-                  "label" => "冷えない",
-                  "text" => "冷ケースリーチインが冷えません"
+                  "label" => "�₦�Ȃ�",
+                  "text" => "��P�[�X���[�`�C�����₦�܂���"
               ],
               [
                   "type" => "message",
-                  "label" => "ナイトカーテン破損",
-                  "text" => "冷ケースリーチインがナイトカーテン破損"
+                  "label" => "�i�C�g�J�[�e���j��",
+                  "text" => "��P�[�X���[�`�C�����i�C�g�J�[�e���j��"
               ],
               [
                   "type" => "message",
-                  "label" => "上記以外の症状",
-                  "text" => "冷ケースリーチインが別の症状"
+                  "label" => "��L�ȊO�̏Ǐ�",
+                  "text" => "��P�[�X���[�`�C�����ʂ̏Ǐ�"
               ]
             ]
           ]
       ]
     ]
   ];
-} else if ($text == '冷ケース平台が冷えません') {
+} else if ($text == '��P�[�X���䂪�₦�܂���') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "霜取りは行いましたか？（はい／いいえ）",
+    "altText" => "�����͍s���܂������H�i�͂��^�������j",
     "template" => [
         "type" => "confirm",
-        "text" => "霜取りは行いましたか？",
+        "text" => "�����͍s���܂������H",
 	"actions" => [
             [
               "type" => "message",
-              "label" => "はい",
-              "text" => "はい、行いました。"
+              "label" => "�͂�",
+              "text" => "�͂��A�s���܂����B"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
-              "text" => "いいえ、行っていません。"
+              "label" => "������",
+              "text" => "�������A�s���Ă��܂���B"
             ]
         ]
     ]
   ];
-} else if ($text == 'はい、行いました。' ) {
+} else if ($text == '�͂��A�s���܂����B' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "対象の機器の設置場所を教えて下さい。",
+        "text" => "�Ώۂ̋@��̐ݒu�ꏊ�������ĉ������B",
   ];
-} else if ($text == '鮮魚コーナー' ) {
+} else if ($text == '�N���R�[�i�[' ) {
   $response_format_text = [
     "type" => "template",
-    "altText" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "�N���R�[�i�[�̗�P�[�X���䂪�₦�Ȃ��Ǐ�̑Ή��ł�낵���ł��傤���H�i�͂��^�������j",
     "template" => [
         "type" => "confirm",
-        "text" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？",
+        "text" => "�N���R�[�i�[�̗�P�[�X���䂪�₦�Ȃ��Ǐ�̑Ή��ł�낵���ł��傤���H",
 	"actions" => [
             [
               "type" => "message",
-              "label" => "はい",
-              "text" => "はい、そうです。"
+              "label" => "�͂�",
+              "text" => "�͂��A�����ł��B"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
-              "text" => "いいえ、違います。"
+              "label" => "������",
+              "text" => "�������A�Ⴂ�܂��B"
             ]
         ]
     ]
   ];
-} else if ($text == 'はい、そうです。' ) {
+} else if ($text == '�͂��A�����ł��B' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
+        "text" => "���⍇������t�܂����A���肪�Ƃ��������܂����B\n�m�F��A���A�������Ē����܂��̂ŁA���҂��������B\n���̑��̓`�B����������ꍇ�͑����Ă����͉������B",
   ];
 } else if ($text == '03-1234-5678') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらの店舗でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "������̓X�܂ł�낵���ł��傤���H�i�͂��^�������j",
     "template" => [
         "type" => "confirm",
-        "text" => "ザイマックスマート 溜池山王店 様でよろしいでしょうか？",
+        "text" => "�U�C�}�b�N�X�}�[�g ���r�R���X �l�ł�낵���ł��傤���H",
 	"actions" => [
             [
               "type" => "message",
-              "label" => "はい",
-              "text" => "はい"
+              "label" => "�͂�",
+              "text" => "�͂�"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
-              "text" => "いいえ"
+              "label" => "������",
+              "text" => "������"
             ]
         ]
     ]
   ];
-} else if ($text == 'はい' ) {
+} else if ($text == '�͂�' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "ザイマックスマート 溜池山王店 様ご登録ありがとうございます。\n続けてお名前をご入力下さい。",
+        "text" => "�U�C�}�b�N�X�}�[�g ���r�R���X �l���o�^���肪�Ƃ��������܂��B\n�����Ă����O�������͉������B",
   ];
-} else if ($text == '財満太郎' ) {
+} else if ($text == '�������Y' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "財満太郎 様ご登録ありがとうございます。\nご依頼事項がある場合は、画面左下のボタンを押して頂き、「お問合せ」よりご登録下さい。",
+        "text" => "�������Y �l���o�^���肪�Ƃ��������܂��B\n���˗�����������ꍇ�́A��ʍ����̃{�^���������Ē����A�u���⍇���v��育�o�^�������B",
   ];
-} else if ($text == '進捗確認') {
+} else if ($text == '�i���m�F') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "確認したい案件の状況を選択して下さい。",
+    "altText" => "�m�F�������Č��̏󋵂�I�����ĉ������B",
     "template" => [
       "type" => "buttons",
-      "title" => "案件状態の選択",
-      "text" => "確認したい案件の状況を選択して下さい。",
+      "title" => "�Č���Ԃ̑I��",
+      "text" => "�m�F�������Č��̏󋵂�I�����ĉ������B",
       "actions" => [
           [
             "type" => "message",
-            "label" => "見積作成中",
-            "text" => "見積作成中"
+            "label" => "���ύ쐬��",
+            "text" => "���ύ쐬��"
           ],
           [
             "type" => "message",
-            "label" => "お客様確認中",
-            "text" => "お客様確認中"
+            "label" => "���q�l�m�F��",
+            "text" => "���q�l�m�F��"
           ],
           [
             "type" => "message",
-            "label" => "作業日調整中・確定",
-            "text" => "作業日調整中・確定"
+            "label" => "��Ɠ��������E�m��",
+            "text" => "��Ɠ��������E�m��"
           ],
           [
             "type" => "message",
-            "label" => "ひとまず上記全部",
-            "text" => "ひとまず上記全部"
+            "label" => "�ЂƂ܂���L�S��",
+            "text" => "�ЂƂ܂���L�S��"
           ]
       ]
     ]
   ];
-} else if ($text == '見積作成中') {
+} else if ($text == '���ύ쐬��') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "見積作成中の案件一覧。",
+    "altText" => "���ύ쐬���̈Č��ꗗ�B",
     "template" => [
       "type" => "confirm",
-      "text" => "見積作成中の案件一覧はこちらです。\n1．受変電設備点検不備改修…12/12\n2．惣菜作業室 ファン更新…12/13\n3．消防設備点検不備改修…12/14\n4．ダクト消火設備休止対応…12/15\n\n以上で確認を終える場合は下記「確認完了」を、さらに詳細を確認したい場合は「詳細確認」を選択ください。",
+      "text" => "���ύ쐬���̈Č��ꗗ�͂�����ł��B\n1�D��ϓd�ݔ��_���s�����C�c12/12\n2�D�y�؍�Ǝ� �t�@���X�V�c12/13\n3�D���h�ݔ��_���s�����C�c12/14\n4�D�_�N�g���ΐݔ��x�~�Ή��c12/15\n\n�ȏ�Ŋm�F���I����ꍇ�͉��L�u�m�F�����v���A����ɏڍׂ��m�F�������ꍇ�́u�ڍ׊m�F�v��I�����������B",
       "actions" => [
           [
             "type" => "message",
-            "label" => "確認完了",
-            "text" => "確認完了"
+            "label" => "�m�F����",
+            "text" => "�m�F����"
           ],
 	  [
             "type" => "message",
-            "label" => "詳細確認",
-            "text" => "詳細確認"
+            "label" => "�ڍ׊m�F",
+            "text" => "�ڍ׊m�F"
           ]
       ]
     ]
