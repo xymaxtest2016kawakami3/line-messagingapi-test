@@ -28,7 +28,7 @@ if ($type == "image" ) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい、そうです"
+              "text" => "はい、駐車場の縁石の修繕です"
             ],
             [
               "type" => "message",
@@ -38,7 +38,7 @@ if ($type == "image" ) {
         ]
      ]
   ];
-} else if ($text == 'はい、そうです' ) {
+} else if ($text == 'はい、駐車場の縁石の修繕です' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "対象の場所を教えて下さい。",
@@ -251,7 +251,7 @@ else if ($text == '修繕依頼・見積依頼') {
         "type" => "text",
         "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
   ];
-} else if ($text == '03-1234-5678' or '0312345678' or '03-5544-6660') {
+} else if ($text == '03-1234-5678') or ($text == '0312345678') or ($text == '03-5544-6660') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらの店舗でよろしいでしょうか？（はい／いいえ）",
