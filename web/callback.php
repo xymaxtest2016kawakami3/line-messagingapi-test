@@ -41,25 +41,30 @@ if ($type == "image" ) {
 } else if ($text == 'はい、駐車場の縁石の修繕です' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "対象の場所を教えて下さい。",
+        "text" => "症状を教えて下さい。",
+  ];
+} else if ($text == '縁石がずれている' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "場所を教えて下さい。",
   ];
 } else if ($text == '北側駐車場') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "北側駐車場の駐車場の縁石の修繕でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "依頼内容の復唱（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "北側駐車場の駐車場の縁石の修繕でよろしいでしょうか？",
+        "text" => "依頼種別：修繕\n設備：駐車場の縁石\n症状：縁石がずれている\n場所：北側駐車場\n以上のご依頼でよろしいでしょうか？",
 	"actions" => [
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい　　"
+              "text" => "はい、そうです"
             ],
             [
               "type" => "message",
               "label" => "いいえ",
-              "text" => "いいえ　　"
+              "text" => "いいえ"
             ]
         ]
     ]
@@ -228,10 +233,10 @@ else if ($text == '修繕依頼・見積依頼') {
 } else if ($text == '鮮魚コーナー' ) {
   $response_format_text = [
     "type" => "template",
-    "altText" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？（はい／いいえ）",
+    "altText" => "依頼内容の復唱（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "鮮魚コーナーの冷ケース平台が冷えない症状の対応でよろしいでしょうか？",
+        "text" => "依頼種別：修繕\n設備：冷ケース平台\n症状：冷えない\n霜取り：済\n場所：鮮魚コーナー\n以上のご依頼でよろしいでしょうか？",
 	"actions" => [
             [
               "type" => "message",
@@ -329,11 +334,26 @@ else if ($text == '修繕依頼・見積依頼') {
           ],
 	  [
             "type" => "message",
-            "label" => "詳細確認",
-            "text" => "詳細確認"
+            "label" => "詳細問合せ",
+            "text" => "詳細問合せ"
           ]
       ]
     ]
+  ];
+} else if ($text == '詳細問合せ' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "案件の番号を入力下さい。",
+  ];
+} else if ($text == '1' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "問合せ内容をご入力下さい。",
+  ];
+} else if ($text == '進捗を教えて下さい' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。",
   ];
 }
 
