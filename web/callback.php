@@ -215,17 +215,17 @@ else if ($text == '修繕依頼・見積依頼') {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい、行いました。"
+              "text" => "はい、行いました"
             ],
             [
               "type" => "message",
               "label" => "いいえ",
-              "text" => "いいえ、行っていません。"
+              "text" => "いいえ、行っていません"
             ]
         ]
     ]
   ];
-} else if ($text == 'はい、行いました。' ) {
+} else if ($text == 'はい、行いました' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "対象の機器の設置場所を教えて下さい。",
@@ -241,17 +241,17 @@ else if ($text == '修繕依頼・見積依頼') {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい、そうです。"
+              "text" => "はい、そうです"
             ],
             [
               "type" => "message",
               "label" => "いいえ",
-              "text" => "いいえ、違います。"
+              "text" => "いいえ、違います"
             ]
         ]
     ]
   ];
-} else if ($text == 'はい、そうです。' ) {
+} else if ($text == 'はい、そうです' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
