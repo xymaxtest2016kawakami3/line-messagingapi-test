@@ -19,13 +19,34 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 if ($type == "image" ) {
   $response_format_text = [
+    "type" => "template",
+    "altText" => "駐車場の縁石の修繕でよろしいでしょうか？（はい／いいえ）",
+    "template" => [
+        "type" => "confirm",
+        "text" => "駐車場の縁石の修繕でよろしいでしょうか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ　"
+            ]
+        ]
+     ]
+  ];
+} else if ($text == 'はい' ) {
+  $response_format_text = [
         "type" => "text",
-        "text" => "駐車場の縁石の対応ですね。続いて、症状をご入力下さい。",
+        "text" => "症状を教えて下さい。",
   ];
 } else if ($text == '縁石がずれている' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "最後に場所を教えて下さい。",
+        "text" => "場所を教えて下さい。",
   ];
 } else if ($text == '北側駐車場') {
   $response_format_text = [
@@ -256,7 +277,7 @@ else if ($text == '修繕依頼・見積依頼') {
         ]
     ]
   ];
-} else if ($text == 'はい' ) {
+} else if ($text == 'はい1' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "ザイマックスマート 溜池山王店 様ご登録ありがとうございます。\n続けてお名前をご入力下さい。",
