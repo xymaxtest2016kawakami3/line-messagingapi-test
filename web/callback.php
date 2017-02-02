@@ -41,12 +41,12 @@ if ($type == "image" ) {
 } else if ($text == 'はい' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "症状を教えて下さい。",
+        "text" => "続けて、症状をご入力下さい。",
   ];
 } else if ($text == '縁石がずれている' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "場所を教えて下さい。",
+        "text" => "最後に場所を教えて下さい。",
   ];
 } else if ($text == '北側駐車場') {
   $response_format_text = [
@@ -54,7 +54,7 @@ if ($type == "image" ) {
     "altText" => "依頼内容の復唱（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "依頼種別：修繕\n設備：駐車場の縁石\n症状：縁石がずれている\n場所：北側駐車場\n以上のご依頼でよろしいでしょうか？",
+        "text" => "以下のご依頼内容でよろしいでしょうか？依頼種別：修繕\n設備：駐車場の縁石\n症状：縁石がずれている\n場所：北側駐車場\n",
 	"actions" => [
             [
               "type" => "message",
