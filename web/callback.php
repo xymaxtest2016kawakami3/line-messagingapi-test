@@ -28,7 +28,7 @@ if ($type == "image" ) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい"
+              "text" => "はい."
             ],
             [
               "type" => "message",
@@ -38,7 +38,7 @@ if ($type == "image" ) {
         ]
      ]
   ];
-} else if ($text == 'はい' ) {
+} else if ($text == 'はい.' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "続けて、症状をご入力下さい。",
@@ -59,7 +59,7 @@ if ($type == "image" ) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい、そうです"
+              "text" => "はい。"
             ],
             [
               "type" => "message",
@@ -241,7 +241,7 @@ else if ($text == '修繕依頼・見積依頼') {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい、そうです"
+              "text" => "はい。"
             ],
             [
               "type" => "message",
@@ -251,7 +251,7 @@ else if ($text == '修繕依頼・見積依頼') {
         ]
     ]
   ];
-} else if ($text == 'はい、そうです' ) {
+} else if ($text == 'はい。' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
@@ -277,7 +277,7 @@ else if ($text == '修繕依頼・見積依頼') {
         ]
     ]
   ];
-} else if ($text == 'はい1' ) {
+} else if ($text == 'はい' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "ザイマックスマート 溜池山王店 様ご登録ありがとうございます。\n続けてお名前をご入力下さい。",
