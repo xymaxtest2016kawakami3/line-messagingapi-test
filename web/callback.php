@@ -28,7 +28,7 @@ if ($type == "image" ) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい."
+              "text" => "はい"
             ],
             [
               "type" => "message",
@@ -38,7 +38,7 @@ if ($type == "image" ) {
         ]
      ]
   ];
-} else if ($text == 'はい.' ) {
+} else if ($text == 'はい' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "続けて、症状をご入力下さい。",
@@ -59,7 +59,7 @@ if ($type == "image" ) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい。"
+              "text" => "はい、そうです"
             ],
             [
               "type" => "message",
@@ -120,11 +120,48 @@ else if ($text == '修繕依頼・見積依頼') {
           ],
           [
             "type" => "message",
-            "label" => "次の選択肢へ",
-            "text" => "次の選択肢へ"
+            "label" => "ここにはない",
+            "text" => "ここにはない"
           ]
       ]
     ]
+  ];
+} else if ($text == 'ここにはない') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "こちらに対象はございますか？",
+    "template" => [
+      "type" => "buttons",
+      "title" => "対象機器の選択２",
+      "text" => "こちらに対象はございますか？",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "ドア",
+            "text" => "ドア"
+          ],
+          [
+            "type" => "message",
+            "label" => "トイレ",
+            "text" => "トイレ"
+          ],
+          [
+            "type" => "message",
+            "label" => "その他（店内）壁・天井・床等",
+            "text" => "その他（店内）壁・天井・床等"
+          ],
+          [
+            "type" => "message",
+            "label" => "その他（店外）外壁・駐車場・植栽等",
+            "text" => "その他（店外）外壁・駐車場・植栽等"
+          ]
+      ]
+    ]
+  ];
+} else if ($text == 'その他（店外）外壁・駐車場・植栽等' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "具体的な対象を写真またはテキストでお送りください。",
   ];
 } else if ($text == 'いいえ') {
   exit;
@@ -241,7 +278,7 @@ else if ($text == '修繕依頼・見積依頼') {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい。"
+              "text" => "はい、そうです"
             ],
             [
               "type" => "message",
@@ -251,7 +288,7 @@ else if ($text == '修繕依頼・見積依頼') {
         ]
     ]
   ];
-} else if ($text == 'はい。' ) {
+} else if ($text == 'はい、そうです' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。\nその他の伝達事項がある場合は続けてご入力下さい。",
@@ -277,7 +314,7 @@ else if ($text == '修繕依頼・見積依頼') {
         ]
     ]
   ];
-} else if ($text == 'はい' ) {
+} else if ($text == 'はい1' ) {
   $response_format_text = [
         "type" => "text",
         "text" => "ザイマックスマート 溜池山王店 様ご登録ありがとうございます。\n続けてお名前をご入力下さい。",
@@ -287,73 +324,62 @@ else if ($text == '修繕依頼・見積依頼') {
         "type" => "text",
         "text" => "山田太郎 様ご登録ありがとうございます。\nご依頼事項がある場合は、画面左下のボタンを押して頂き、「ご依頼はこちら」よりご登録下さい。",
   ];
-} else if ($text == '進捗確認') {
+} else if ($text == '進捗確認' ) {
+  $response_format_text = [
+        "type" => "text",
+        "text" => "現在承っている案件は下記になります。\n1．受変電設備点検不備改修\n2．惣菜作業室 ファン更新\n3．消防設備点検不備改修\n4．ダクト消火設備休止対応\n5.畜産作業場フライヤー油循環不調修理\n6.スライサー動作不良修理\n\n進捗を確認されたい案件の番号をご入力下さい。",
+  ];
+} else if ($text == '2') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "確認したい案件の状況を選択して下さい。（見積作成中/お客様確認中/作業日調整中・確定/ひとまず上記全部）",
+    "altText" => "案件情報と担当者からの連絡",
     "template" => [
-      "type" => "buttons",
-      "title" => "案件状態の選択",
-      "text" => "確認したい案件の状況を選択して下さい。",
-      "actions" => [
-          [
-            "type" => "message",
-            "label" => "見積作成中",
-            "text" => "見積作成中"
-          ],
-          [
-            "type" => "message",
-            "label" => "お客様確認中",
-            "text" => "お客様確認中"
-          ],
-          [
-            "type" => "message",
-            "label" => "作業日調整中・確定",
-            "text" => "作業日調整中・確定"
-          ],
-          [
-            "type" => "message",
-            "label" => "ひとまず上記全部",
-            "text" => "ひとまず上記全部"
-          ]
-      ]
+        "type" => "confirm",
+        "text" => "2．惣菜作業室 ファン更新　は作業予定日を調整中です。\n担当者からの連絡をご希望ですか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい、希望します"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ、希望しません"
+            ]
+        ]
     ]
   ];
-} else if ($text == '見積作成中') {
+} else if ($text == 'はい、希望します') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "見積作成中の案件一覧。（確認完了/詳細問合せ）",
+    "altText" => "担当者への追加連絡事項",
     "template" => [
-      "type" => "confirm",
-      "text" => "見積作成中の案件一覧はこちらです。\n1．受変電設備点検不備改修…12/12\n2．惣菜作業室 ファン更新…12/13\n3．消防設備点検不備改修…12/14\n4．ダクト消火設備休止対応…12/15\n\n以上で確認を終える場合は下記「確認完了」を、さらに詳細を確認したい場合は「詳細問合せ」を選択ください。",
-      "actions" => [
-          [
-            "type" => "message",
-            "label" => "確認完了",
-            "text" => "確認完了"
-          ],
-	  [
-            "type" => "message",
-            "label" => "詳細問合せ",
-            "text" => "詳細問合せ"
-          ]
-      ]
+        "type" => "confirm",
+        "text" => "本案件に関して、担当者に先にお伝えしておきたい事はございますか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい、あります"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ、ありません"
+            ]
+        ]
     ]
   ];
-} else if ($text == '詳細問合せ' ) {
+} else if ($text == 'はい、あります' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "案件の番号を入力下さい。",
+        "text" => "ご伝達事項をご入力下さい。",
   ];
-} else if ($text == '1' ) {
+} else if ($text == '作業日はいつですか？' ) {
   $response_format_text = [
         "type" => "text",
-        "text" => "問合せ内容をご入力下さい。",
-  ];
-} else if ($text == '進捗を教えて下さい' ) {
-  $response_format_text = [
-        "type" => "text",
-        "text" => "お問合せを受付ました、ありがとうございました。\n確認後、ご連絡させて頂きますので、お待ち下さい。",
+        "text" => "内容を承りました、ありがとうございました。\n担当者からの連絡をお待ちください。",
   ];
 }
 
